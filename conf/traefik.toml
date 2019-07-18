@@ -12,8 +12,8 @@ defaultEntryPoints = ["https", "http"]
   address = ":443"
   [entryPoints.https.tls]
     [entryPoints.https.tls.defaultCertificate]
-      certFile = "/cert/whoami.cert"
-      keyFile = "/cert/whoami.key"
+      certFile = "/certs/whoami.cert"
+      keyFile = "/certs/whoami.key"
  
 [api]
 entrypoint="traefik"

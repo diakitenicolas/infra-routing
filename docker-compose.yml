@@ -7,7 +7,7 @@ services:
     labels:
       traefik.enable: true
       traefik.frontend.rule: 'Host:traefik.${DOMAIN}'
-      traefik.frontend.auth.basic: 'admin:$$2y$$05$$3df/sPtb3ZfKaD1gwUryyOWVthwAVeOcdZgCPm3WtbZWfU0s5mBga'
+      traefik.frontend.auth.basic: '${TRAEFIK_DASHBOARD_CREDENTIALS}'
       traefik.port: '8080'
     ports:
       - 80:80    
@@ -17,7 +17,7 @@ services:
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ${PWD}/conf/traefik.toml:/traefik.toml
-        - ${PWD}/cert/:/cert/
+        - ${PWD}/certs/:/certs/
     healthcheck:
       test: ["CMD", "/traefik", "healthcheck"]
       start_period: 2s
