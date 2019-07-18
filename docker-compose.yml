@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   traefik:
-    image: traefik:${TRAEFIK_VERSION} # The official Traefik docker image
+    image: traefik:${TRAEFIK_VERSION}
     container_name: traefik
     labels:
       traefik.enable: true
@@ -10,12 +10,12 @@ services:
       traefik.frontend.auth.basic: 'admin:$$2y$$05$$3df/sPtb3ZfKaD1gwUryyOWVthwAVeOcdZgCPm3WtbZWfU0s5mBga'
       traefik.port: '8080'
     ports:
-      - 80:80     # The HTTP port
-      - 443:443   # The HTTP port
+      - 80:80    
+      - 443:443  
     expose:
       - 8080
     volumes:
-        - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+        - /var/run/docker.sock:/var/run/docker.sock
         - ${PWD}/conf/traefik.toml:/traefik.toml
         - ${PWD}/cert/:/cert/
     healthcheck:
