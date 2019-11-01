@@ -1,0 +1,7 @@
+#dynamic conf
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        certFile : /certs/whoami.cert
+        keyFile : /certs/whoami.key
